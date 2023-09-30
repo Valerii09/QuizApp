@@ -8,13 +8,23 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Question 1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/questionImageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:layout_gravity="center"/>
+        android:contentDescription="Question Image"
+        android:scaleType="fitCenter" />
 
     <RadioGroup
         android:id="@+id/optionsRadioGroup"
@@ -27,19 +37,19 @@
             android:id="@+id/option1RadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 1"/>
+            android:text="Option 1" />
 
         <RadioButton
             android:id="@+id/option2RadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 2"/>
+            android:text="Option 2" />
 
         <RadioButton
             android:id="@+id/option3RadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option 3"/>
+            android:text="Option 3" />
     </RadioGroup>
 
     <Button
@@ -47,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Submit"/>
+        android:text="Next" />
 
 </LinearLayout>
+
