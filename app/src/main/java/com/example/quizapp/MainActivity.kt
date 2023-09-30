@@ -7,32 +7,172 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
     // Инициализируйте список вопросов
     private val questions = listOf(
-        Question("Вопрос 1", R.drawable.image1, listOf(
-            AnswerOption("Ответ 1"),
-            AnswerOption("Ответ 2"),
-            AnswerOption("Ответ 3")
-        ), 0),
-        // Добавьте остальные вопросы
-        // ...
+        Question(
+            "Какое столицей Франции?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Лондон"),
+                AnswerOption("Париж"),
+                AnswerOption("Берлин")
+            ),
+            1
+        ),
+        Question(
+            "Какой самый высокий город в мире?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Москва"),
+                AnswerOption("Нью-Йорк"),
+                AnswerOption("Ла-Пас")
+            ),
+            2
+        ),
+        Question(
+            "Какой химический символ для водорода?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Hg"),
+                AnswerOption("He"),
+                AnswerOption("H")
+            ),
+            2
+        ),
+        Question(
+            "Какое самое большое озеро в мире?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Каспийское море"),
+                AnswerOption("Байкал"),
+                AnswerOption("Онтарио")
+            ),
+            0
+        ),
+        Question(
+            "Какая планета в Солнечной системе самая большая?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Меркурий"),
+                AnswerOption("Венера"),
+                AnswerOption("Юпитер")
+            ),
+            2
+        ),
+        Question(
+            "Сколько континентов на Земле?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("3"),
+                AnswerOption("6"),
+                AnswerOption("7")
+            ),
+            2
+        ),
+        Question(
+            "Какая столица Японии?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Сеул"),
+                AnswerOption("Пекин"),
+                AnswerOption("Токио")
+            ),
+            2
+        ),
+        Question(
+            "Какая самая длинная река в мире?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Миссисипи"),
+                AnswerOption("Амазонка"),
+                AnswerOption("Нил")
+            ),
+            2
+        ),
+        Question(
+            "Какое химическое вещество имеет символ 'Au'?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Аргон"),
+                AnswerOption("Серебро"),
+                AnswerOption("Золото")
+            ),
+            2
+        ),
+        Question(
+            "Какая страна известна как 'Страна восходящего солнца'?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Индия"),
+                AnswerOption("Китай"),
+                AnswerOption("Япония")
+            ),
+            2
+        ),
+        Question(
+            "Сколько месяцев в году имеют 28 дней?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("1"),
+                AnswerOption("6"),
+                AnswerOption("12")
+            ),
+            2
+        ),
+        Question(
+            "Какая самая высокая гора в мире?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Альпы"),
+                AnswerOption("Килиманджаро"),
+                AnswerOption("Эверест")
+            ),
+            2
+        ),
+        Question(
+            "Какое животное является символом Австралии?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Кенгуру"),
+                AnswerOption("Коала"),
+                AnswerOption("Пингвин")
+            ),
+            0
+        ),
+        Question(
+            "Какая самая длинная река в России?",
+            R.drawable.image1,
+            listOf(
+                AnswerOption("Обь"),
+                AnswerOption("Волга"),
+                AnswerOption("Лена")
+            ),
+            1
+        )
     )
-
     private var currentQuestionIndex = 0
     private var score = 0
+
+    private lateinit var questionImageView: ImageView
+    private lateinit var option1RadioButton: RadioButton
+    private lateinit var option2RadioButton: RadioButton
+    private lateinit var option3RadioButton: RadioButton
+    private lateinit var submitButton: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val questionImageView = findViewById<ImageView>(R.id.questionImageView)
-        val option1RadioButton = findViewById<RadioButton>(R.id.option1RadioButton)
-        val option2RadioButton = findViewById<RadioButton>(R.id.option2RadioButton)
-        val option3RadioButton = findViewById<RadioButton>(R.id.option3RadioButton)
-        val submitButton = findViewById<Button>(R.id.submitButton)
+        questionImageView = findViewById(R.id.questionImageView)
+        option1RadioButton = findViewById(R.id.option1RadioButton)
+        option2RadioButton = findViewById(R.id.option2RadioButton)
+        option3RadioButton = findViewById(R.id.option3RadioButton)
+        submitButton = findViewById(R.id.submitButton)
 
         // Обновление экрана с вопросом и вариантами ответов
         updateQuestionAndOptions()
@@ -45,10 +185,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateQuestionAndOptions() {
         val currentQuestion = questions[currentQuestionIndex]
-        val questionImageView = findViewById<ImageView>(R.id.questionImageView)
-        val option1RadioButton = findViewById<RadioButton>(R.id.option1RadioButton)
-        val option2RadioButton = findViewById<RadioButton>(R.id.option2RadioButton)
-        val option3RadioButton = findViewById<RadioButton>(R.id.option3RadioButton)
 
         questionImageView.setImageResource(currentQuestion.imageResId)
         option1RadioButton.text = currentQuestion.options[0].text
@@ -80,8 +216,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun showResult() {
         val resultText = "Ваш результат: $score из ${questions.size}"
-        // Отобразите результат и кнопку рестарта
-        // Можно создать новую активность или использовать AlertDialog
-        // с кнопкой "Рестарт".
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Результат")
+            .setMessage(resultText)
+            .setPositiveButton("Рестарт") { _, _ ->
+                restartQuiz()
+            }
+            .setCancelable(false)
+            .create()
+        alertDialog.show()
+    }
+
+    private fun restartQuiz() {
+        currentQuestionIndex = 0
+        score = 0
+        updateQuestionAndOptions()
     }
 }
