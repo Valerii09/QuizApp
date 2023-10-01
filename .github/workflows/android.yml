@@ -17,8 +17,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'adopt'
+          java-version: '17' # Укажите версию JDK 17
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
