@@ -7,7 +7,9 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -16,10 +18,14 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          distribution: 'adopt'
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build and test
-        run: ./gradlew check
+        run: |
+          ./gradlew check
+          ./gradlew test
 
       - name: Package APK
         run: ./gradlew bundleRelease
