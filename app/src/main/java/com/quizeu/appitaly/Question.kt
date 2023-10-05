@@ -1,4 +1,4 @@
-package com.example.quizapp
+package com.quizeu.appitaly
 
 data class Question(
     val questionText: String,

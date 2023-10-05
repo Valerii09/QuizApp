@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "779086345252",
+    "project_id": "fsd-49e77",
+    "storage_bucket": "fsd-49e77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779086345252:android:8ecd65e1230f5ef10a54b1",
+        "android_client_info": {
+          "package_name": "com.quizeu.appitaly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxcOk-NSVlCGplgs-ILuwn63sHVg8PAzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

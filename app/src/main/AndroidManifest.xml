@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/quiz"
+        android:icon="@drawable/logo_13"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/quiz"
+        android:roundIcon="@drawable/logo_13"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">

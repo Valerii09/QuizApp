@@ -1,4 +1,4 @@
-package com.example.quizapp
+package com.quizeu.appitaly
 
 import android.annotation.SuppressLint
 import android.content.Intent
