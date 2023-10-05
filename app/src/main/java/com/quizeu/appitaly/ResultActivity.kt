@@ -29,7 +29,7 @@ class ResultActivity : AppCompatActivity() {
         scoreTextView.text = scoreText
 
         restartButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AnotherActivity::class.java)
             startActivity(intent)
             finish()
         }

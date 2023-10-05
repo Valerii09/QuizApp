@@ -1,76 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/quiz_background"
-    android:orientation="vertical"
-    android:padding="16dp"
+    android:layout_height="match_parent">
 
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/questionTextView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Question 1"
-        android:textColor="@color/quiz_text_color"
-        android:textSize="24sp"
-        android:textStyle="normal" />
+        android:layout_height="match_parent"
+        android:background="#212121"
+        android:gravity="center">
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="220dp"
+            android:layout_height="10dp"
+            android:layout_centerInParent="true"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/custom_progress_bar" />
+    </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/questionImageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:contentDescription="Question Image"
-        android:scaleType="fitCenter" />
-
-    <RadioGroup
-        android:id="@+id/optionsRadioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
-
-        <RadioButton
-            android:id="@+id/option1RadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 1"
-            android:textColor="@color/quiz_text_color"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/option2RadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 2"
-            android:textColor="@color/quiz_text_color"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/option3RadioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Option 3"
-            android:textColor="@color/quiz_text_color"
-            android:textSize="18sp" />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:paddingVertical="10dp"
-        android:text="SUBMIT"
-        android:textSize="18dp" />
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
