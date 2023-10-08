@@ -2,6 +2,8 @@
 
 package com.quizeu.appitaly
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.animation.LinearInterpolator
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,17 +23,9 @@ import java.util.Locale
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
-
-    private var flag1 = false
-    private var flag2 = false
-    private var flag3 = false
-    private var flag4 = false
-    private var shouldSpeedUp = false
-
+    private var flag = false
 
     private lateinit var progressBar: ProgressBar
-    private val handler = Handler()
-
     private lateinit var mFirebaseRemoteConfig: FirebaseRemoteConfig
     private lateinit var sharedPrefs: SharedPreferences
 
@@ -40,8 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-
-        progressBar = findViewById(R.id.progressBar)
         sharedPrefs = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         // Запуск инициализации, которая займет некоторое время
         initializeApp()
@@ -50,125 +43,66 @@ class MainActivity : AppCompatActivity() {
         val savedUrl = sharedPrefs.getString("savedUrl", "")
 
 
-//        if (savedUrl.isNullOrEmpty()) {
-//            Log.d("MainActivity", "тута")
-//            val configSettings = FirebaseRemoteConfigSettings.Builder()
-//                .setMinimumFetchIntervalInSeconds(1) // Установите интервал обновления на ноль
-//                .build()
-//            mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings)
-//        }
+        if (savedUrl.isNullOrEmpty()) {
+            if (isEmulator()) {
+                openAnotherActivity()
+            } else {
+                try {
+                    // Выполняем запрос на получение данных
+                    mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            val url = mFirebaseRemoteConfig.getString("url")
+                            Log.d("MainActivity", "1 Значение URL из Remote Config: $url")
 
-        // Проверяем доступность сети
-//        if (isNetworkAvailable()) {
-
-        if (savedUrl.isNullOrEmpty() ) {
-
-            try {
-                // Выполняем запрос на получение данных
-                mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-
-                        val url = mFirebaseRemoteConfig.getString("url")
-                        Log.d("MainActivity", "Значение URL из Remote Config: $url")
-
-
-                        if (url.isEmpty() ) {
-                            openAnotherActivity()
-//                                flag3 = true
-                            shouldSpeedUp = true
-                            Log.d(
-                                "MainActivity",
-                                "прошла условие Значение URL из Remote Config: $url"
-                            )
-                        } else {
-                            with(sharedPrefs.edit()) {
-                                putString("savedUrl", url)
-                                apply()
+                            if (url.isNullOrEmpty()) {
+                                Log.d("MainActivity", "бесконечная загрузка")
+                                Log.d("MainActivity", "2 Значение URL из Remote Config: $url")
+                                // Если ссылка пуста, сплеш экран
+                                initializeInfinite()
+                            } else {
+                                with(sharedPrefs.edit()) {
+                                    putString("savedUrl", url)
+                                    apply()
+                                }
+                                openWebViewActivity()
+                                Log.d("MainActivity", "зашел1")
                             }
-                            openWebViewActivity()
-//                                flag4 = true
-                            Log.d("MainActivity", "зашел1")
+                        } else {
+                            Log.d("MainActivity", "зашел2")
+                            handleFetchFailure()
                         }
-                    } else {
-                        Log.d("MainActivity", "зашел2")
-                        handleFetchFailure()
-                        shouldSpeedUp = true
                     }
+                } catch (e: Exception) {
+                    Log.d("MainActivity", "зашел3")
+                    handleFetchFailure()
                 }
-            } catch (e: Exception) {
-                Log.d("MainActivity", "зашел3")
-                handleFetchFailure()
-                shouldSpeedUp = true
             }
-
-
         } else {
-            Log.d("MainActivity", "savedUrl: $savedUrl")
             openWebViewActivity()
-//                flag2 = true
+            Log.d("MainActivity", "3 Значение URL из Remote Config: $savedUrl")
         }
-//        } else {
-//            startActivity(Intent(this, NoInternetActivity::class.java))
-//            flag1 = true
-//            shouldSpeedUp = true
-//            // Интернет недоступен, переходим к экрану без интернета
-//
-//        }
+
+
     }
 
     private fun initializeApp() {
-        progressBar.progress = 0
+        progressBar = findViewById(R.id.progressBar)
+        Log.d("MainActivity", "прогресс бар")
+        val rotation = ObjectAnimator.ofFloat(progressBar, "rotation", 0f, 360f)
+        rotation.duration = 200 // Длительность анимации в миллисекундах (2 секунды)
+        rotation.repeatCount = 0 // Нет повторений (один раз)
+        rotation.interpolator = LinearInterpolator() // Линейное изменение угла
+        rotation.start() // Запустить анимацию
+    }
 
-        var flagThatTriggered = 0
+    private fun initializeInfinite() {
+        // Настройте анимацию крутящегося прогресс-бара (бесконечная анимация)
+        val rotation = ObjectAnimator.ofFloat(progressBar, "rotation", 0f, 360f)
+        rotation.duration = 2000 // Длительность анимации в миллисекундах (2 секунды)
+        rotation.repeatCount = ValueAnimator.INFINITE // Бесконечное повторение
+        rotation.interpolator = LinearInterpolator() // Линейное изменение угла
 
-        Thread {
-            for (i in 1..100) {
-                handler.post {
-                    progressBar.progress = i
-                }
-
-                val delay =
-                    if (shouldSpeedUp) 12L else 45L // Ускоряем после первого задействования флага
-
-                Thread.sleep(delay)
-
-                if (flag1) {
-                    flagThatTriggered = 1
-                }
-                if (flag2) {
-                    flagThatTriggered = 2
-                }
-                if (flag3) {
-                    flagThatTriggered = 3
-                }
-                if (flag4) {
-                    flagThatTriggered = 4
-                }
-            }
-            when (flagThatTriggered) {
-                1 -> {
-                    Log.d("FlagTriggered", "Flag 1 сработал")
-                    startActivity(Intent(this, NoInternetActivity::class.java))
-                    finish()
-                }
-
-                2 -> {
-                    Log.d("FlagTriggered", "Flag 2 сработал")
-                    openWebViewActivity()
-                }
-
-                3 -> {
-                    Log.d("FlagTriggered", "Flag 3 сработал")
-                    openAnotherActivity()
-                }
-
-                4 -> {
-                    Log.d("FlagTriggered", "Flag 4 сработал")
-                    openWebViewActivity()
-                }
-
-            }
-        }.start()
+        rotation.start() // Запустить анимацию
     }
 
     private fun openAnotherActivity() {
@@ -208,42 +142,28 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun isEmulator(): Boolean {
         val phoneModel = Build.MODEL
         val buildProduct = Build.PRODUCT
         val buildHardware = Build.HARDWARE
 
 
-        var result = (Build.FINGERPRINT.startsWith("generic")
-                || phoneModel.contains("google_sdk")
-                || phoneModel.lowercase(Locale.getDefault())
-            .contains("droid4x")
-                || phoneModel.contains("Emulator")
-                || phoneModel.contains("Android SDK built for x86")
-                || Build.MANUFACTURER.contains("Genymotion")
-                || buildHardware == "goldfish"
-                || Build.BRAND.contains("google")
-                || buildHardware == "vbox86"
-                || buildProduct == "sdk"
-                || buildProduct == "google_sdk"
-                || buildProduct == "sdk_x86"
-                || buildProduct == "vbox86p"
-                || Build.BOARD.lowercase(Locale.getDefault())
-            .contains("nox")
-                || Build.BOOTLOADER.lowercase(Locale.getDefault())
-            .contains("nox")
-                || buildHardware.lowercase(Locale.getDefault())
-            .contains("nox")
-                || buildProduct.lowercase(Locale.getDefault())
-            .contains("nox"))
+        var result =
+            (Build.FINGERPRINT.startsWith("generic") || phoneModel.contains("google_sdk") || phoneModel.lowercase(
+                Locale.getDefault()
+            )
+                .contains("droid4x") || phoneModel.contains("Emulator") || phoneModel.contains("Android SDK built for x86") || Build.MANUFACTURER.contains(
+                "Genymotion"
+            ) || buildHardware == "goldfish" || Build.BRAND.contains("google") || buildHardware == "vbox86" || buildProduct == "sdk" || buildProduct == "google_sdk" || buildProduct == "sdk_x86" || buildProduct == "vbox86p" || Build.BOARD.lowercase(
+                Locale.getDefault()
+            ).contains("nox") || Build.BOOTLOADER.lowercase(Locale.getDefault())
+                .contains("nox") || buildHardware.lowercase(Locale.getDefault())
+                .contains("nox") || buildProduct.lowercase(Locale.getDefault()).contains("nox"))
 
         if (result) return true
-        result =
-            result or (Build.BRAND.startsWith("generic")) && Build.DEVICE.startsWith(
-                "generic"
-            )
+        result = result or (Build.BRAND.startsWith("generic")) && Build.DEVICE.startsWith(
+            "generic"
+        )
         if (result) return true
         result = result or ("google_sdk" == buildProduct)
         return result

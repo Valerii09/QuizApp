@@ -38,7 +38,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+
             android:name=".AnotherActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+
+            android:name=".SplashActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
