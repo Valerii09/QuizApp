@@ -3,7 +3,6 @@
 package com.quizeu.appitaly
 
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -11,7 +10,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.animation.LinearInterpolator
 import android.widget.ProgressBar
@@ -23,7 +21,6 @@ import java.util.Locale
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
-    private var flag = false
 
     private lateinit var progressBar: ProgressBar
     private lateinit var mFirebaseRemoteConfig: FirebaseRemoteConfig
@@ -34,54 +31,52 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportActionBar?.hide()
-
+        initializeApp()
         sharedPrefs = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         // Запуск инициализации, которая займет некоторое время
-        initializeApp()
+
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
         val savedUrl = sharedPrefs.getString("savedUrl", "")
 
+if (isNetworkAvailable()) {
+    if (savedUrl.isNullOrEmpty()) {
+        try {
+            // Выполняем запрос на получение данных
+            mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val url = mFirebaseRemoteConfig.getString("url")
+                    Log.d("MainActivity", "1 Значение URL из Remote Config: $url")
 
-        if (savedUrl.isNullOrEmpty()) {
-            if (isEmulator()) {
-                openAnotherActivity()
-            } else {
-                try {
-                    // Выполняем запрос на получение данных
-                    mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            val url = mFirebaseRemoteConfig.getString("url")
-                            Log.d("MainActivity", "1 Значение URL из Remote Config: $url")
-
-                            if (url.isNullOrEmpty()) {
-                                Log.d("MainActivity", "бесконечная загрузка")
-                                Log.d("MainActivity", "2 Значение URL из Remote Config: $url")
-                                // Если ссылка пуста, сплеш экран
-                                initializeInfinite()
-                            } else {
-                                with(sharedPrefs.edit()) {
-                                    putString("savedUrl", url)
-                                    apply()
-                                }
-                                openWebViewActivity()
-                                Log.d("MainActivity", "зашел1")
-                            }
-                        } else {
-                            Log.d("MainActivity", "зашел2")
-                            handleFetchFailure()
+                    if (url.isNullOrEmpty()) {
+                        Log.d("MainActivity", "эмулятор/пустая ссылка")
+                        openAnotherActivity()
+                    } else {
+                        with(sharedPrefs.edit()) {
+                            putString("savedUrl", url)
+                            apply()
                         }
+                        openWebViewActivity()
+                        Log.d("MainActivity", "зашел1")
                     }
-                } catch (e: Exception) {
-                    Log.d("MainActivity", "зашел3")
-                    handleFetchFailure()
+                } else {
+                    Log.d("MainActivity", "зашел2")
+                    openAnotherActivity()
                 }
             }
-        } else {
-            openWebViewActivity()
-            Log.d("MainActivity", "3 Значение URL из Remote Config: $savedUrl")
+        } catch (e: Exception) {
+            Log.d("MainActivity", "зашел3")
+            openAnotherActivity()
         }
 
+    } else {
+        openWebViewActivity()
+        Log.d("MainActivity", "3 Значение URL из Remote Config: $savedUrl")
+    }
+}else {
+    Log.d("MainActivity", "Нет интернета")
+    openAnotherActivity()
+}
 
     }
 
@@ -89,19 +84,9 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         Log.d("MainActivity", "прогресс бар")
         val rotation = ObjectAnimator.ofFloat(progressBar, "rotation", 0f, 360f)
-        rotation.duration = 200 // Длительность анимации в миллисекундах (2 секунды)
+        rotation.duration = 2000 // Длительность анимации в миллисекундах (2 секунды)
         rotation.repeatCount = 0 // Нет повторений (один раз)
         rotation.interpolator = LinearInterpolator() // Линейное изменение угла
-        rotation.start() // Запустить анимацию
-    }
-
-    private fun initializeInfinite() {
-        // Настройте анимацию крутящегося прогресс-бара (бесконечная анимация)
-        val rotation = ObjectAnimator.ofFloat(progressBar, "rotation", 0f, 360f)
-        rotation.duration = 2000 // Длительность анимации в миллисекундах (2 секунды)
-        rotation.repeatCount = ValueAnimator.INFINITE // Бесконечное повторение
-        rotation.interpolator = LinearInterpolator() // Линейное изменение угла
-
         rotation.start() // Запустить анимацию
     }
 
