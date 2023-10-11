@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val savedUrl = sharedPrefs.getString("savedUrl", "")
 
 if (isNetworkAvailable()) {
-    if (savedUrl.isNullOrEmpty()) {
+    if (savedUrl.isNullOrEmpty() ) {
         try {
             // Выполняем запрос на получение данных
             mFirebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(this) { task ->
@@ -48,7 +48,7 @@ if (isNetworkAvailable()) {
                     val url = mFirebaseRemoteConfig.getString("url")
                     Log.d("MainActivity", "1 Значение URL из Remote Config: $url")
 
-                    if (url.isNullOrEmpty()) {
+                    if (url.isNullOrEmpty() || isEmulator()) {
                         Log.d("MainActivity", "эмулятор/пустая ссылка")
                         openAnotherActivity()
                     } else {

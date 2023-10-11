@@ -34,4 +34,7 @@ class ResultActivity : AppCompatActivity() {
             finish()
         }
     }
+    override fun onBackPressed() {
+        // Здесь ничего не делаем, чтобы заблокировать кнопку "Назад"
+    }
 }

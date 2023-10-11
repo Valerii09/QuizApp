@@ -261,6 +261,8 @@ class AnotherActivity : AppCompatActivity() {
         // Перейдите к ResultActivity
         startActivity(resultIntent)
     }
-
+    override fun onBackPressed() {
+        // Здесь ничего не делаем, чтобы заблокировать кнопку "Назад"
+    }
 
 }
