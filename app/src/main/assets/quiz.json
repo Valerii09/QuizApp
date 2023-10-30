@@ -1,0 +1,125 @@
+[
+    {
+      "question": "In which year did the first modern Olympic Games take place?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1896", "1936", "1954", "1969"],
+      "answer": "1896"
+    },
+    {
+      "question": "What event marked the birth of Formula 1?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1936 Olympics", "Moon Landing", "1954", "1967"],
+      "answer": "1954"
+    },
+    {
+      "question": "Who became the first person to set foot on the surface of the Moon?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["Neil Armstrong", "Muhammad Ali", "Tony Hawk", "Yuri Gagarin"],
+      "answer": "Neil Armstrong"
+    },
+    {
+      "question": "Which boxer reclaimed the world boxing championship title in 1980?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["Muhammad Ali", "Ben Johnson", "Jesse Owens", "Tony Hawk"],
+      "answer": "Muhammad Ali"
+    },
+    {
+      "question": "In which year did the XXV Olympic Games take place in Barcelona?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1992", "1972", "2012", "1960"],
+      "answer": "1992"
+    },
+    {
+      "question": "When were the first known Olympic Games held in ancient Greece?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1936", "1960", "776 BC", "1963"],
+      "answer": "776 BC"
+    },
+    {
+      "question": "Which Olympics in Berlin were politically significant?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1936 Olympics", "1980 Olympics", "2012 Olympics", "1964 Olympics"],
+      "answer": "1936 Olympics"
+    },
+    {
+      "question": "What historic skateboarding trick was performed by Tony Hawk?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["720", "180", "1080", "900"],
+      "answer": "900"
+    },
+    {
+      "question": "In which year was the first FIFA World Cup held?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1980", "1960", "1930", "1967"],
+      "answer": "1930"
+    },
+    {
+      "question": "When was the first rock climbing team created?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1960", "1972", "1936", "1967"],
+      "answer": "1967"
+    },
+    {
+      "question": "What event marked the birth of the Entertainment and Sports Programming Network (ESPN)?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["Moon Landing", "Tony Hawk's 900", "First FIFA World Cup", "1960"],
+      "answer": "1960"
+    },
+    {
+      "question": "What symbolic moment involving Yuri Gagarin occurred in 1963?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["First golf game in space", "First ice hockey match in space", "First skateboarding trick in space", "Puck drop before a hockey game"],
+      "answer": "Puck drop before a hockey game"
+    },
+    {
+      "question": "In which year did Arnold Schwarzenegger portray Conan the Barbarian skiing in a movie?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1973", "1967", "1983", "1998"],
+      "answer": "1983"
+    },
+    {
+      "question": "The Major League Soccer (MLS) was launched in which year?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1980", "1984", "1994", "2008"],
+      "answer": "1994"
+    },
+    {
+      "question": "What doping scandal involved the Canadian sprinter Ben Johnson?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1980 Olympics", "1994 FIFA World Cup", "1988 Olympics", "2008 Olympics"],
+      "answer": "1988 Olympics"
+    },
+    {
+      "question": "Who set numerous Olympic records and won multiple gold medals at the 2016 Rio Olympics?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["Tony Hawk", "Neil Armstrong", "Michael Phelps", "Jesse Owens"],
+      "answer": "Michael Phelps"
+    },
+    {
+      "question": "In which year did the iPhone release, leading to the development of sports and fitness apps?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1980", "1984", "2007", "2012"],
+      "answer": "2007"
+    },
+    {
+      "question": "Which significant global sporting event faced a boycott by the USA and other Western democratic countries in 1980?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["1936 Olympics", "1984 Olympics", "1980 Olympics", "1996 Olympics"],
+      "answer": "1980 Olympics"
+    },
+    {
+      "question": "The 1984 Summer Olympics in Los Angeles were notable for what reason?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["First Olympics held in Africa", "First Olympics in Asia", "First Olympics with female athletes", "First Olympics to turn a profit"],
+      "answer": "First Olympics to turn a profit"
+    },
+    {
+      "question": "The 2012 Summer Olympics took place in which city?",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
+      "options": ["New York", "Los Angeles", "London", "Sydney"],
+      "answer": "London"
+    }
+  ]
+
+ 
+  

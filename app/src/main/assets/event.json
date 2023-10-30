@@ -10,112 +10,112 @@
       "headline": "Record Discus Throw: Athlete Sets New World Record",
       "source": "Athletics Weekly",
       "date": "2023-11-24",
-      "image_url": "https://example.com/discus_throw_record.jpg",
+      "image_url": "https://content.api.news/v3/images/bin/64c95bed87d44eb46e63a5c2c8c8c568",
       "description": "An experienced athlete set a new world record in discus throw, surpassing the discus to an astonishing distance of 75.63 meters."
   },
   {
       "headline": "Historic Victory: Women's Team Wins Gold at the Olympics",
       "source": "Sports Illustrated",
       "date": "2023-11-26",
-      "image_url": "https://example.com/olympic_gold_medal.jpg",
+      "image_url": "https://media.cnn.com/api/v1/images/stellar/prod/221102104843-02-usa-gymnastics-gold.jpg?c=16x9&q=h_720,w_1280,c_fill",
       "description": "The women's national athletics team achieved a historic victory, winning a gold medal at the Summer Olympics. It's the first time the women's team has achieved such success."
   },
   {
       "headline": "Sportsman of the Year: New Tennis Star Claims the Title",
       "source": "Tennis Today",
       "date": "2023-11-28",
-      "image_url": "https://example.com/tennis_star_award.jpg",
+      "image_url": "https://smartcdn.gprod.postmedia.digital/windsorstar/wp-content/uploads/2023/10/cdn20231018mm03.jpg?quality=90&strip=all&w=564&h=423&type=webp&sig=ZsZK_vEtalmamciTbsoHnA",
       "description": "A young tennis player has been named the Sportsman of the Year after remarkable performances during the season. He won two major tournaments and captured the hearts of fans worldwide."
   },
   {
       "headline": "New World Champion: Heavyweight Wrestler Wins Title Battle",
       "source": "Wrestling World",
       "date": "2023-11-30",
-      "image_url": "https://example.com/heavyweight_wrestling_champion.jpg",
+      "image_url": "https://imageio.forbes.com/specials-images/imageserve/6447306266bafd4e31f33129/WWE-unveiled-a-new-WWE-World-Heavyweight-Championship-/960x0.jpg?format=jpg&width=1440",
       "description": "In an intense battle for the heavyweight wrestling champion title, a wrestler emerged victorious against the defending champion and secured the world champion title."
   },
   {
-      "headline": "Historical Record: Marathon Runner Breaks World Record",
+        "headline": "Historical Record: Marathon Runner Breaks World Record",
       "source": "Runner's World",
       "date": "2023-12-03",
-      "image_url": "https://example.com/marathon_world_record.jpg",
+      "image_url": "https://hips.hearstapps.com/hmg-prod/images/new-york-exterior-royalty-free-image-1698243721.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*",
       "description": "A marathon runner completed the race with a phenomenal time, breaking the world record in marathon running by finishing the distance in 2 hours and 2 minutes."
   },
   {
       "headline": "Basketball Player Extends Contract with Team for Five More Years",
       "source": "Basketball Insider",
       "date": "2023-12-05",
-      "image_url": "https://example.com/basketball_contract_extension.jpg",
+      "image_url": "https://sportshub.cbsistatic.com/i/r/2023/10/23/736c6fe7-6d12-4613-8ebe-9b440326a770/thumbnail/770x433/fd930777bc8437ab8e6092f97d94f227/gettyimages-1248574529-1-1.jpg",
       "description": "A star basketball player has extended his contract with the team for five more years, raising hopes among fans for a championship victory."
   },
   {
       "headline": "World Record in Swimming: Swimmer Crosses English Channel in Incredible Time",
       "source": "Swimming News",
       "date": "2023-12-07",
-      "image_url": "https://example.com/channel_swim_world_record.jpg",
+      "image_url": "https://swimswam.com/wp-content/uploads/2020/10/germany-flag-4388171_1920-1080x720.jpg",
       "description": "An experienced swimmer set a world record by crossing the English Channel in an incredible time. This achievement will be remembered for years to come."
   },
   {
       "headline": "Big Deal: Football Club Signs Star Forward",
       "source": "Goal.com",
       "date": "2023-12-10",
-      "image_url": "https://example.com/football_transfer_deal.jpg",
+      "image_url": "https://liveblog.digitalimages.sky/lc-images-sky/lcimg-db3ac6ac-fc71-4840-90b0-7a36e82e566b.jpg",
       "description": "A football club made a significant deal by signing a star forward, causing excitement among fans and analysts."
   },
   {
       "headline": "Scaling New Heights: Climber Conquers Highest Mountain",
       "source": "Climbing Magazine",
       "date": "2023-12-12",
-      "image_url": "https://example.com/mountain_climbing_achievement.jpg",
+      "image_url": "https://th-i.thgim.com/public/incoming/ue1ddg/article66905761.ece/alternates/FREE_1200/photo-1.jpg",
       "description": "An experienced climber achieved a long-awaited ascent to the world's highest mountain, setting a new standard in the world of mountaineering."
   },
   {
       "headline": "New World Record: High Jump at the Olympics",
       "source": "Sports Illustrated",
       "date": "2023-12-15",
-      "image_url": "https://example.com/high_jump_world_record.jpg",
+      "image_url": "https://img.olympicchannel.com/images/image/private/t_s_w1340/t_s_16_9_g_auto/f_auto/primary/rr0nmhjjnqpfj9a06mrg",
       "description": "At the Summer Olympics in Athens, an athlete set a new world record in high jump by clearing 2.45 meters."
   },
   {
       "headline": "Season Conclusion: Racer Wins Formula 1 Grand Prix",
       "source": "Formula1.com",
       "date": "2023-12-25",
-      "image_url": "https://example.com/f1_grand_prix_winner.jpg",
+      "image_url": "https://cdn.racingnews365.com/2023/Verstappen/_1125x633_crop_center-center_85_none/11563591/MP9_5749.webp?v=1698617244",
       "description": "Formula 1 concluded its season, and a racer claimed victory in the Grand Prix, finishing the season with an excellent performance."
   },
   {
       "headline": "Russian Team Impresses the World with Incredible Hockey Skills",
       "source": "SportExpress.ru",
       "date": "2023-12-25",
-      "image_url": "https://example.com/russia_hockey_excellence.jpg",
+      "image_url": "https://thehockeynews.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTk2NTk3Njc3ODUxNDIwNjM5/hugg_ab43890.webp",
       "description": "Russian hockey players demonstrated incredible skills and won a series of matches, earning recognition from the global community."
   },
   {
       "headline": "New Record: Pittsburgh Penguins Goalie Stops 98% of Shots in a Match",
       "source": "NHL.com",
       "date": "2023-12-21",
-      "image_url": "https://example.com/penguins_goalie_record.jpg",
+      "image_url": "https://www.reuters.com/resizer/SQwNwDylMt9oBIIpBN1geCP4IuM=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/H2K5DUK73FPQDGKSSKUPVU4CZ4.jpg",
       "description": "A Pittsburgh Penguins goalie set a new record by stopping 98% of the opponent's shots in an exciting match."
   },
   {
       "headline": "Olympic Exclusive: Interview with the Captain of the Swedish National Team",
       "source": "SportsIllustrated.com",
       "date": "2023-12-19",
-      "image_url": "https://example.com/sweden_captain_interview.jpg",
+      "image_url": "https://cdn.theathletic.com/cdn-cgi/image/width=770%2cformat=auto%2cquality=75/https://cdn.theathletic.com/app/uploads/2023/08/14075254/GettyImages-1591782658-scaled-e1692013999859-1024x648.jpg",
       "description": "We interviewed the captain of the Swedish national team about the preparation for the upcoming Olympic games and the team's strategy."
   },
   {
       "headline": "Innovations in Hockey: Using VAR Technology in Officiating",
       "source": "HockeyTech.com",
       "date": "2023-12-17",
-      "image_url": "https://example.com/hockey_var_technology.jpg",
+      "image_url": "https://ss-i.thgim.com/public/incoming/ntqfma/article67462499.ece/alternates/LANDSCAPE_1200/kerala_blasters_05.jpg",
       "description": "Since the introduction of VAR (Video Assistant Referee) in hockey officiating, the decisions of referees have become fairer and more accurate."
   },
   {
       "headline": "Young Talent: 18-Year-Old Hockey Player Scores Hat-trick in Debut Match",
       "source": "YoungHockeyTalent.com",
       "date": "2023-12-16",
-      "image_url": "https://example.com/young_hockey_prodigy.jpg",
+      "image_url": "https://d2779tscntxxsw.cloudfront.net/649cff6c92588.png?width=400&quality=80",
       "description": "An 18-year-old newcomer astonished everyone by scoring a hat-trick in his first official match for the team."
   }
 ]
