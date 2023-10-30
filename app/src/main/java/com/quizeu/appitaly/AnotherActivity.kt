@@ -1,268 +1,166 @@
 package com.quizeu.appitaly
 
+import Question
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.IOException
 
 class AnotherActivity : AppCompatActivity() {
-
-
-    // Инициализируйте список вопросов
-    private val questions = listOf(
-        Question(
-            "Who was the first British player to win league titles in four countries?",
-            R.drawable.image1,
-            listOf(
-                AnswerOption("Wayne Rooney"),
-                AnswerOption("David Beckham"),
-                AnswerOption("Harry Kane")
-            ),
-            1
-        ),
-        Question(
-            "Which is the only country that has taken part in every FIFA World Cup?",
-            R.drawable.image2,
-            listOf(
-                AnswerOption("France"),
-                AnswerOption("Brazil"),
-                AnswerOption("Argentina")
-            ),
-            1
-        ),
-        Question(
-            "How many disciplines are there in men's gymnastics?",
-            R.drawable.image3,
-            listOf(
-                AnswerOption("Four"),
-                AnswerOption("Five"),
-                AnswerOption("Six")
-            ),
-            2
-        ),
-        Question(
-            "What is the record for the most red cards in one football match?",
-            R.drawable.image4,
-            listOf(
-                AnswerOption("36"),
-                AnswerOption("37"),
-                AnswerOption("38")
-            ),
-            0
-        ),
-        Question(
-            "Which African country was the first to qualify for the World Cup?",
-            R.drawable.image5,
-            listOf(
-                AnswerOption("Morocco"),
-                AnswerOption("Nigeria"),
-                AnswerOption("Egypt")
-            ),
-            2
-        ),
-        Question(
-            "Which city was the first to host the Olympics twice?",
-            R.drawable.image6,
-            listOf(
-                AnswerOption("Brasilia"),
-                AnswerOption("Paris"),
-                AnswerOption("Vancouver")
-            ),
-            1
-        ),
-        Question(
-            "What does NBA mean?",
-            R.drawable.image7,
-            listOf(
-                AnswerOption("National Running Association"),
-                AnswerOption("National Baseball Association"),
-                AnswerOption("National Basketball Association")
-            ),
-            2
-        ),
-        Question(
-            "Which part of the body in football cannot touch the ball?",
-            R.drawable.image8,
-            listOf(
-                AnswerOption("Knees"),
-                AnswerOption("Elbows"),
-                AnswerOption("Hands")
-            ),
-            2
-        ),
-        Question(
-            "In what year were women allowed to participate in the modern Olympic Games?",
-            R.drawable.image9,
-            listOf(
-                AnswerOption("1900"),
-                AnswerOption("1954"),
-                AnswerOption("1889")
-            ),
-            0
-        ),
-        Question(
-            "What is the only city in the United States that has won three of the four " +
-                    "major professional sports championships in the same year?",
-            R.drawable.image10,
-            listOf(
-                AnswerOption("Kentucky"),
-                AnswerOption("Iowa"),
-                AnswerOption("Detroit")
-            ),
-            2
-        ),
-        Question(
-            "Who is the youngest heavyweight boxing champion of the world?",
-            R.drawable.image11,
-            listOf(
-                AnswerOption("Evander Holyfield"),
-                AnswerOption("Mike Tyson"),
-                AnswerOption("George Foreman")
-            ),
-            1
-        ),
-        Question(
-            "How many medals did China win at the Beijing Olympics?",
-            R.drawable.image12,
-            listOf(
-                AnswerOption("100"),
-                AnswerOption("89"),
-                AnswerOption("96")
-            ),
-            0
-        ),
-        Question(
-            "How old was the youngest professional football player?",
-            R.drawable.image13,
-            listOf(
-                AnswerOption("12"),
-                AnswerOption("18"),
-                AnswerOption("16")
-            ),
-            0
-        ),
-        Question(
-            "How many players are on a baseball team?",
-            R.drawable.image14,
-            listOf(
-                AnswerOption("10"),
-                AnswerOption("9"),
-                AnswerOption("8")
-            ),
-            1
-        ),
-        Question(
-            "What was the fastest goal in the history of the World Cup?",
-            R.drawable.image15,
-            listOf(
-                AnswerOption("9.8 seconds"),
-                AnswerOption("11.8 seconds"),
-                AnswerOption("10.8 seconds")
-            ),
-            2
-        )
-
-    )
     private var currentQuestionIndex = 0
     private var score = 0
+    private lateinit var questions: List<Question>
 
     private lateinit var questionImageView: ImageView
-    private lateinit var option1RadioButton: RadioButton
-    private lateinit var option2RadioButton: RadioButton
-    private lateinit var option3RadioButton: RadioButton
+    private lateinit var optionsRadioGroup: RadioGroup
+    private lateinit var submitButton: Button
+    private lateinit var questionTextView: TextView
 
-    @SuppressLint("MissingInflatedId")
+    private lateinit var adapter: OptionsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_another)
-
-        val submitButton = findViewById<Button>(R.id.submitButton)
-        val optionsRadioGroup = findViewById<RadioGroup>(R.id.optionsRadioGroup)
-
+        questionTextView = findViewById(R.id.questionTextView)
         questionImageView = findViewById(R.id.questionImageView)
-        option1RadioButton = findViewById(R.id.option1RadioButton)
-        option2RadioButton = findViewById(R.id.option2RadioButton)
-        option3RadioButton = findViewById(R.id.option3RadioButton)
+        optionsRadioGroup = findViewById(R.id.optionsRadioGroup)
+        submitButton = findViewById(R.id.submitButton)
 
-        // Обновление экрана с вопросом и вариантами ответов
-        updateQuestionAndOptions()
-
-        submitButton.setOnClickListener {
-            // Проверьте, был ли выбран хотя бы один вариант ответа
-            val selectedOptionId = optionsRadioGroup.checkedRadioButtonId
-            if (selectedOptionId != -1) {
-                // Пользователь выбрал вариант ответа, можно перейти к следующему вопросу
-                checkAnswer()
-            } else {
-                // Если ничего не выбрано, выведите сообщение пользователю, что нужно выбрать ответ.
-                Toast.makeText(this, "Выберите вариант ответа", Toast.LENGTH_SHORT).show()
+        try {
+            val jsonString = applicationContext.assets.open("quiz.json").bufferedReader().use {
+                it.readText()
             }
+
+            val gson = Gson()
+            val listType = object : TypeToken<List<Question>>() {}.type
+            questions = gson.fromJson(jsonString, listType)
+
+            if (questions.isNotEmpty()) {
+                Log.d("TAG", "Первый вопрос1: ${questions.getOrNull(0)}")
+                adapter = OptionsAdapter(this, questions[currentQuestionIndex].options)
+                Log.d("TAG", "Первый вопрос2: ${questions.getOrNull(0)}")
+                updateRadioGroup(questions[currentQuestionIndex].options)
+                Log.d("TAG", "Первый вопрос3: ${questions.getOrNull(0)}")
+                updateQuestionAndOptions()
+
+                submitButton.setOnClickListener {
+                    val selectedOptionId = optionsRadioGroup.checkedRadioButtonId
+                    Log.d("TAG", "selectedOptionId: $selectedOptionId")
+
+                    if (selectedOptionId != -1) {
+                        checkAnswer()
+                    } else {
+                        Toast.makeText(this, "Выберите вариант ответа", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Log.e("TAG", "Нет данных вопросов")
+                Toast.makeText(this, "Нет данных для вопросов", Toast.LENGTH_SHORT).show()
+            }
+        } catch (ex: IOException) {
+            Log.e("TAG", "Ошибка при загрузке данных: $ex")
+            Toast.makeText(this, "Ошибка при загрузке данных", Toast.LENGTH_SHORT).show()
+        }
+
+        Log.d("TAG", "Первый вопрос7: ${questions.getOrNull(0)}")
+    }
+
+
+    private fun updateRadioGroup(options: List<String>) {
+        optionsRadioGroup.removeAllViews()
+
+        for (option in options) {
+            val radioButton = RadioButton(this)
+            radioButton.text = option
+            radioButton.setTextColor(ContextCompat.getColor(this, R.color.white)) // Установите цвет текста
+
+            // Установка цвета для фона радиокнопок
+            val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)) // Укажите цвет фона
+            radioButton.buttonTintList = colorStateList
+
+            optionsRadioGroup.addView(radioButton)
         }
     }
+
 
     private fun updateQuestionAndOptions() {
         val currentQuestion = questions[currentQuestionIndex]
+        questionTextView.text = currentQuestion.question
         val questionImageView = findViewById<ImageView>(R.id.questionImageView)
-        val option1RadioButton = findViewById<RadioButton>(R.id.option1RadioButton)
-        val option2RadioButton = findViewById<RadioButton>(R.id.option2RadioButton)
-        val option3RadioButton = findViewById<RadioButton>(R.id.option3RadioButton)
-        val questionTextView =
-            findViewById<TextView>(R.id.questionTextView) // Добавлен TextView для текста вопроса
 
-        // Установите текст в TextView на основе текущего вопроса
-        questionTextView.text = currentQuestion.questionText
+// Загрузите изображение из URL с помощью Glide
+        Glide.with(this)
+            .load(currentQuestion.image_url)
+            .into(questionImageView)
 
-        // Сбросить выбор в RadioGroup
-        val optionsRadioGroup = findViewById<RadioGroup>(R.id.optionsRadioGroup)
+        // Проверяем, что количество RadioButton равно количеству вариантов ответов
+        if (optionsRadioGroup.childCount == currentQuestion.options.size) {
+            for (i in 0 until optionsRadioGroup.childCount) {
+                val radioButton = optionsRadioGroup.getChildAt(i) as RadioButton
+                radioButton.text = currentQuestion.options[i]
+            }
+        } else {
+            // Создайте RadioButton или очистите RadioGroup и добавьте новые RadioButton, если их количество не совпадает
+            optionsRadioGroup.removeAllViews()
+            for (option in currentQuestion.options) {
+                val radioButton = RadioButton(this)
+                radioButton.layoutParams = RadioGroup.LayoutParams(
+                    RadioGroup.LayoutParams.MATCH_PARENT,
+                    RadioGroup.LayoutParams.WRAP_CONTENT
+                )
+                radioButton.text = option
+                optionsRadioGroup.addView(radioButton)
+            }
+        }
         optionsRadioGroup.clearCheck()
 
-        questionImageView.setImageResource(currentQuestion.imageResId)
-        option1RadioButton.text = currentQuestion.options[0].text
-        option2RadioButton.text = currentQuestion.options[1].text
-        option3RadioButton.text = currentQuestion.options[2].text
     }
 
     private fun checkAnswer() {
-        val selectedOptionIndex =
-            when (findViewById<RadioGroup>(R.id.optionsRadioGroup).checkedRadioButtonId) {
-                R.id.option1RadioButton -> 0
-                R.id.option2RadioButton -> 1
-                R.id.option3RadioButton -> 2
-                else -> -1
+        val selectedOptionId = optionsRadioGroup.checkedRadioButtonId
+
+
+        if (selectedOptionId != -1) {
+            val selectedOptionIndex = optionsRadioGroup.indexOfChild(findViewById(selectedOptionId))
+            val currentQuestion = questions[currentQuestionIndex]
+            val correctAnswerIndex = currentQuestion.options.indexOf(currentQuestion.answer)
+
+            if (selectedOptionIndex == correctAnswerIndex) {
+                score++
             }
 
-        if (selectedOptionIndex == questions[currentQuestionIndex].correctAnswerIndex) {
-            score++
-        }
-
-        // Перейти к следующему вопросу или показать результат
-        if (currentQuestionIndex < questions.size - 1) {
-            currentQuestionIndex++
-            updateQuestionAndOptions()
+            if (currentQuestionIndex < questions.size - 1) {
+                currentQuestionIndex++
+                updateQuestionAndOptions()
+            } else {
+                showResultDialog()
+            }
         } else {
-            showResultDialog()
+            Toast.makeText(this, "Выберите вариант ответа", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun showResultDialog() {
         val resultIntent = Intent(this, ResultActivity::class.java)
-
-        // Добавьте количество правильных ответов в Intent
         resultIntent.putExtra("score", score)
-
-        // Добавьте общее количество вопросов в Intent
         resultIntent.putExtra("totalQuestions", questions.size)
-
-        // Перейдите к ResultActivity
         startActivity(resultIntent)
     }
-    override fun onBackPressed() {
-        // Здесь ничего не делаем, чтобы заблокировать кнопку "Назад"
-    }
 
+    override fun onBackPressed() {
+        // Блокировка кнопки "Назад"
+    }
 }
