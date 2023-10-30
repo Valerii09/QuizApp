@@ -4,7 +4,8 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
 
     <!-- Изображение -->
     <ImageView
@@ -16,6 +17,8 @@
 
     <!-- Информация о новости (заголовок, дата и источник) -->
     <LinearLayout
+
+        android:background="@color/semi_transparent_black"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -23,13 +26,16 @@
         android:padding="8dp">
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/headlineTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Headline"
+
             android:textSize="18sp"
             android:textStyle="bold" />
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/dateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,6 +43,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/sourceTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +51,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:textColor="@color/white"
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

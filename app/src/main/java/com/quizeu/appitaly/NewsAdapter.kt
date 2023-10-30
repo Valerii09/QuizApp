@@ -12,6 +12,14 @@ class NewsAdapter(private val newsList: List<NewsItem>, private val listener: On
 
     private var expandedPosition = -1
 
+    inner class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val headlineTextView: TextView = itemView.findViewById(R.id.headlineTextView)
+        val newsImageView: ImageView = itemView.findViewById(R.id.newsImageView)
+        val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
+        val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
+        val sourceTextView: TextView = itemView.findViewById(R.id.sourceTextView)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false)
         return NewsViewHolder(view)
@@ -22,15 +30,16 @@ class NewsAdapter(private val newsList: List<NewsItem>, private val listener: On
         holder.headlineTextView.text = news.headline
         holder.dateTextView.text = news.date
         holder.sourceTextView.text = news.source
-        Glide.with(holder.itemView).load(news.imageUrl).into(holder.newsImageView)
+        holder.descriptionTextView.text = news.description
 
         val isExpanded = position == expandedPosition
+        holder.descriptionTextView.visibility = if (isExpanded) View.VISIBLE else View.GONE
 
-        if (isExpanded) {
-            holder.descriptionTextView.visibility = View.VISIBLE
-        } else {
-            holder.descriptionTextView.visibility = View.GONE
-        }
+        // Используем библиотеку Glide для загрузки и установки изображения из URL
+        Glide.with(holder.itemView)
+            .load(news.imageUrl) // Загрузка изображения по URL
+            .placeholder(R.drawable.placeholder_image) // Заглушка для показа, пока изображение загружается
+            .into(holder.newsImageView) // Установка изображения в ImageView
 
         holder.itemView.setOnClickListener {
             expandedPosition = if (isExpanded) -1 else position
@@ -39,8 +48,6 @@ class NewsAdapter(private val newsList: List<NewsItem>, private val listener: On
         }
     }
 
-
-
     override fun getItemCount(): Int {
         return newsList.size
     }
@@ -48,13 +55,6 @@ class NewsAdapter(private val newsList: List<NewsItem>, private val listener: On
     interface OnItemClickListener {
         fun onItemClick(newsItem: NewsItem)
     }
-
-    inner class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val headlineTextView: TextView = itemView.findViewById(R.id.headlineTextView)
-        val newsImageView: ImageView = itemView.findViewById(R.id.newsImageView)
-        val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
-        val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
-        val sourceTextView: TextView = itemView.findViewById(R.id.sourceTextView)
-    }
 }
+
 
