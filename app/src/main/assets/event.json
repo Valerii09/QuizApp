@@ -1,0 +1,121 @@
+[
+  {
+      "headline": "Sensation in Football: Newcomer Scores Hat-trick in Debut Match",
+      "source": "Sports Daily",
+      "date": "2023-11-22",
+      "image_url": "https://media.gettyimages.com/id/1750582872/pt/foto/london-england-eddie-nketiah-of-arsenal-celebrates-scoring-his-hat-trick-during-the-premier.jpg?s=1024x1024&w=gi&k=20&c=gJm9lgZR27rN0LP4vpnfirDBeUg0gC9S0AR2IabBaxk=",
+      "description": "A young footballer, who recently joined the club, created a sensation in his debut match by scoring a hat-trick and helping his team secure a 4-1 victory."
+  },
+  {
+      "headline": "Record Discus Throw: Athlete Sets New World Record",
+      "source": "Athletics Weekly",
+      "date": "2023-11-24",
+      "image_url": "https://example.com/discus_throw_record.jpg",
+      "description": "An experienced athlete set a new world record in discus throw, surpassing the discus to an astonishing distance of 75.63 meters."
+  },
+  {
+      "headline": "Historic Victory: Women's Team Wins Gold at the Olympics",
+      "source": "Sports Illustrated",
+      "date": "2023-11-26",
+      "image_url": "https://example.com/olympic_gold_medal.jpg",
+      "description": "The women's national athletics team achieved a historic victory, winning a gold medal at the Summer Olympics. It's the first time the women's team has achieved such success."
+  },
+  {
+      "headline": "Sportsman of the Year: New Tennis Star Claims the Title",
+      "source": "Tennis Today",
+      "date": "2023-11-28",
+      "image_url": "https://example.com/tennis_star_award.jpg",
+      "description": "A young tennis player has been named the Sportsman of the Year after remarkable performances during the season. He won two major tournaments and captured the hearts of fans worldwide."
+  },
+  {
+      "headline": "New World Champion: Heavyweight Wrestler Wins Title Battle",
+      "source": "Wrestling World",
+      "date": "2023-11-30",
+      "image_url": "https://example.com/heavyweight_wrestling_champion.jpg",
+      "description": "In an intense battle for the heavyweight wrestling champion title, a wrestler emerged victorious against the defending champion and secured the world champion title."
+  },
+  {
+      "headline": "Historical Record: Marathon Runner Breaks World Record",
+      "source": "Runner's World",
+      "date": "2023-12-03",
+      "image_url": "https://example.com/marathon_world_record.jpg",
+      "description": "A marathon runner completed the race with a phenomenal time, breaking the world record in marathon running by finishing the distance in 2 hours and 2 minutes."
+  },
+  {
+      "headline": "Basketball Player Extends Contract with Team for Five More Years",
+      "source": "Basketball Insider",
+      "date": "2023-12-05",
+      "image_url": "https://example.com/basketball_contract_extension.jpg",
+      "description": "A star basketball player has extended his contract with the team for five more years, raising hopes among fans for a championship victory."
+  },
+  {
+      "headline": "World Record in Swimming: Swimmer Crosses English Channel in Incredible Time",
+      "source": "Swimming News",
+      "date": "2023-12-07",
+      "image_url": "https://example.com/channel_swim_world_record.jpg",
+      "description": "An experienced swimmer set a world record by crossing the English Channel in an incredible time. This achievement will be remembered for years to come."
+  },
+  {
+      "headline": "Big Deal: Football Club Signs Star Forward",
+      "source": "Goal.com",
+      "date": "2023-12-10",
+      "image_url": "https://example.com/football_transfer_deal.jpg",
+      "description": "A football club made a significant deal by signing a star forward, causing excitement among fans and analysts."
+  },
+  {
+      "headline": "Scaling New Heights: Climber Conquers Highest Mountain",
+      "source": "Climbing Magazine",
+      "date": "2023-12-12",
+      "image_url": "https://example.com/mountain_climbing_achievement.jpg",
+      "description": "An experienced climber achieved a long-awaited ascent to the world's highest mountain, setting a new standard in the world of mountaineering."
+  },
+  {
+      "headline": "New World Record: High Jump at the Olympics",
+      "source": "Sports Illustrated",
+      "date": "2023-12-15",
+      "image_url": "https://example.com/high_jump_world_record.jpg",
+      "description": "At the Summer Olympics in Athens, an athlete set a new world record in high jump by clearing 2.45 meters."
+  },
+  {
+      "headline": "Season Conclusion: Racer Wins Formula 1 Grand Prix",
+      "source": "Formula1.com",
+      "date": "2023-12-25",
+      "image_url": "https://example.com/f1_grand_prix_winner.jpg",
+      "description": "Formula 1 concluded its season, and a racer claimed victory in the Grand Prix, finishing the season with an excellent performance."
+  },
+  {
+      "headline": "Russian Team Impresses the World with Incredible Hockey Skills",
+      "source": "SportExpress.ru",
+      "date": "2023-12-25",
+      "image_url": "https://example.com/russia_hockey_excellence.jpg",
+      "description": "Russian hockey players demonstrated incredible skills and won a series of matches, earning recognition from the global community."
+  },
+  {
+      "headline": "New Record: Pittsburgh Penguins Goalie Stops 98% of Shots in a Match",
+      "source": "NHL.com",
+      "date": "2023-12-21",
+      "image_url": "https://example.com/penguins_goalie_record.jpg",
+      "description": "A Pittsburgh Penguins goalie set a new record by stopping 98% of the opponent's shots in an exciting match."
+  },
+  {
+      "headline": "Olympic Exclusive: Interview with the Captain of the Swedish National Team",
+      "source": "SportsIllustrated.com",
+      "date": "2023-12-19",
+      "image_url": "https://example.com/sweden_captain_interview.jpg",
+      "description": "We interviewed the captain of the Swedish national team about the preparation for the upcoming Olympic games and the team's strategy."
+  },
+  {
+      "headline": "Innovations in Hockey: Using VAR Technology in Officiating",
+      "source": "HockeyTech.com",
+      "date": "2023-12-17",
+      "image_url": "https://example.com/hockey_var_technology.jpg",
+      "description": "Since the introduction of VAR (Video Assistant Referee) in hockey officiating, the decisions of referees have become fairer and more accurate."
+  },
+  {
+      "headline": "Young Talent: 18-Year-Old Hockey Player Scores Hat-trick in Debut Match",
+      "source": "YoungHockeyTalent.com",
+      "date": "2023-12-16",
+      "image_url": "https://example.com/young_hockey_prodigy.jpg",
+      "description": "An 18-year-old newcomer astonished everyone by scoring a hat-trick in his first official match for the team."
+  }
+]

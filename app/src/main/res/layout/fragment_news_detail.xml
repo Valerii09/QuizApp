@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detail_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Headline"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/detail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:layout_below="@id/detail_headline" />
+
+    <TextView
+        android:id="@+id/detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:layout_below="@id/detail_description" />
+
+    <TextView
+        android:id="@+id/detail_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Source"
+        android:layout_below="@id/detail_date" />
+
+
+    <!-- Добавьте другие представления, если это необходимо -->
+
+</RelativeLayout>

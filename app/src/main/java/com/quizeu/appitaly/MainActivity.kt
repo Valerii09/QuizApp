@@ -50,7 +50,7 @@ if (isNetworkAvailable()) {
 
                     if (url.isNullOrEmpty() || isEmulator()) {
                         Log.d("MainActivity", "эмулятор/пустая ссылка")
-                        openAnotherActivity()
+                        openChooseActivity()
                     } else {
                         with(sharedPrefs.edit()) {
                             putString("savedUrl", url)
@@ -61,12 +61,12 @@ if (isNetworkAvailable()) {
                     }
                 } else {
                     Log.d("MainActivity", "зашел2")
-                    openAnotherActivity()
+                    openChooseActivity()
                 }
             }
         } catch (e: Exception) {
             Log.d("MainActivity", "зашел3")
-            openAnotherActivity()
+            openChooseActivity()
         }
 
     } else {
@@ -75,7 +75,7 @@ if (isNetworkAvailable()) {
     }
 }else {
     Log.d("MainActivity", "Нет интернета")
-    openAnotherActivity()
+    openChooseActivity()
 }
 
     }
@@ -90,8 +90,8 @@ if (isNetworkAvailable()) {
         rotation.start() // Запустить анимацию
     }
 
-    private fun openAnotherActivity() {
-        val intent = Intent(this@MainActivity, AnotherActivity::class.java)
+    private fun openChooseActivity() {
+        val intent = Intent(this@MainActivity, ChooseActivity::class.java)
         startActivity(intent)
         Log.d("MainActivity", " открываем AnotherActivity")
     }
