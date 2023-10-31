@@ -1,4 +1,4 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
 import android.annotation.SuppressLint
 import android.content.Context

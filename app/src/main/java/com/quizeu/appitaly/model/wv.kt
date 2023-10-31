@@ -1,4 +1,4 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.model
 
 import android.content.Context
 import android.content.Intent
@@ -13,6 +13,7 @@ import android.view.View
 import android.webkit.*
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import com.quizeu.appitaly.R
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat

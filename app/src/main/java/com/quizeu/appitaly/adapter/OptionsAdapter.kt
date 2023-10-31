@@ -1,13 +1,12 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.adapter
 
-import Question
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
-import androidx.core.content.ContextCompat
+import com.quizeu.appitaly.R
 
 class OptionsAdapter(
     context: Context,

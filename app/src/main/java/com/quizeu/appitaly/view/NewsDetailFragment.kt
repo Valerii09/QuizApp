@@ -1,4 +1,4 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,20 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
+import com.quizeu.appitaly.R
+import com.quizeu.appitaly.model.NewsItem
 
 // NewsDetailFragment.kt
 class NewsDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance(newsItem: NewsItem): NewsDetailFragment {
-            val fragment = NewsDetailFragment()
-            val args = Bundle()
-            args.putParcelable("news_item", newsItem)
-            fragment.arguments = args
-            return fragment
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

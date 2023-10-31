@@ -1,7 +1,6 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
-import Question
-import android.annotation.SuppressLint
+import com.quizeu.appitaly.model.Question
 import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +15,8 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.quizeu.appitaly.adapter.OptionsAdapter
+import com.quizeu.appitaly.R
 import java.io.IOException
 
 class AnotherActivity : AppCompatActivity() {
@@ -100,7 +101,7 @@ class AnotherActivity : AppCompatActivity() {
         questionTextView.text = currentQuestion.question
         val questionImageView = findViewById<ImageView>(R.id.questionImageView)
 
-// Загрузите изображение из URL с помощью Glide
+        // Загрузка изображения из URL с помощью Glide
         Glide.with(this)
             .load(currentQuestion.image_url)
             .into(questionImageView)

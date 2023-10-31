@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
 import android.animation.ObjectAnimator
 import android.content.Context
@@ -16,6 +16,8 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.quizeu.appitaly.R
+import com.quizeu.appitaly.model.WV
 import java.util.Locale
 
 

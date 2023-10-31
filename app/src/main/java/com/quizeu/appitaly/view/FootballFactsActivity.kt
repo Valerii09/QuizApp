@@ -1,4 +1,4 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
 import android.os.Bundle
 import android.view.View
@@ -10,6 +10,9 @@ import org.json.JSONArray
 import java.io.IOException
 
 import android.util.Log
+import com.quizeu.appitaly.adapter.NewsAdapter
+import com.quizeu.appitaly.R
+import com.quizeu.appitaly.model.NewsItem
 import org.json.JSONException
 
 class FootballFactsActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener {

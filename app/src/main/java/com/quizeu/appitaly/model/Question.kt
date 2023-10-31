@@ -1,3 +1,5 @@
+package com.quizeu.appitaly.model
+
 import android.os.Parcel
 import android.os.Parcelable
 

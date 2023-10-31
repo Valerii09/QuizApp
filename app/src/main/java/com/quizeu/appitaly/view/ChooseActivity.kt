@@ -1,10 +1,11 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.quizeu.appitaly.R
 
 class ChooseActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

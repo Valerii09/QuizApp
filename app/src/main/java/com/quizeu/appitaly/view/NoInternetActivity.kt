@@ -1,4 +1,4 @@
-package com.quizeu.appitaly
+package com.quizeu.appitaly.view
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.quizeu.appitaly.R
 
 @Suppress("UNREACHABLE_CODE", "DEPRECATION")
 class NoInternetActivity : AppCompatActivity() {

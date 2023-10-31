@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -28,34 +28,34 @@
         </activity>
 
         <activity
-            android:name=".NoInternetActivity"
+            android:name=".view.NoInternetActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".WV"
+            android:name=".model.WV"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
 
-            android:name=".AnotherActivity"
+            android:name=".view.AnotherActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
 
-            android:name=".ChooseActivity"
+            android:name=".view.ChooseActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
 
-            android:name=".FootballFactsActivity"
+            android:name=".view.FootballFactsActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
 
 
         <activity
-            android:name=".ResultActivity"
+            android:name=".view.ResultActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
